@@ -1,0 +1,33 @@
+# Java: arquivos compilados e pastas de build
+*.class
+/out/
+/build/
+/target/
+/.gradle/
+
+# Configuracoes locais de IDEs
+/.idea/
+*.iml
+/.vscode/
+/.classpath
+/.project
+/.settings/
+
+# Segredos e configuracoes locais
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials.json
+
+# Logs e arquivos temporarios
+*.log
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
