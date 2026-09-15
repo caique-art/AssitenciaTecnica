@@ -31,3 +31,4 @@ credentials.json
 *.bak
 .DS_Store
 Thumbs.db
+/bin/

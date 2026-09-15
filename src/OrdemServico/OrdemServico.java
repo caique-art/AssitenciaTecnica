@@ -1,7 +1,6 @@
+package OrdemServico;
 public class OrdemServico {
-    private String nome;
-    private String cpf;
-    private String telefone;
+   
     private String produto;
     private String marca;
     private String modelo;
@@ -12,22 +11,7 @@ public class OrdemServico {
 
     public OrdemServico() {
     }
-
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
+    
     public String getDefeito() {
         return defeito;
     }
@@ -61,13 +45,6 @@ public class OrdemServico {
     }
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
     }
 
     public int getSenha(){
