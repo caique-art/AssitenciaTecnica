@@ -2,6 +2,7 @@ package Main;
 import java.util.Locale;
 import java.util.Scanner;
 import Menu.Menu;
+import Menu.ConsoleVisual;
 
 
 public class Main {
@@ -12,12 +13,7 @@ public class Main {
         int escolha;
 
         do {
-            System.out.println("1 - Cadastrar cliente");
-            System.out.println("2 - Cadastrar equipamento");
-            System.out.println("3 - Abrir ordem de serviço");
-            System.out.println("4 - Consultar ordem de serviço");
-            System.out.println("5 - Alterar status da OS");
-            System.out.println("0 - Sair");
+            ConsoleVisual.menuPrincipal();
             escolha = sc.nextInt();
             sc.nextLine();
 
@@ -44,11 +40,11 @@ public class Main {
                     break;
 
                 case 0:
-                    System.out.println("Programa encerrado.");
+                    ConsoleVisual.sucesso("Atendimento encerrado. Até a próxima!");
                     break;
 
                 default:
-                    System.out.println("Opção inválida.");
+                    ConsoleVisual.aviso("Opção inválida. Escolha um número de 0 a 5.");
                     break;
             }
         }while(escolha !=0);
