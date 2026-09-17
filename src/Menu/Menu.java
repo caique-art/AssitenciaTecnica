@@ -138,14 +138,14 @@ public class Menu {
 		}
 	}
 
-    private void exibirEquipamento(int indice, OrdemServico equipamento) {
-        ConsoleVisual.secao("EQUIPAMENTO [" + (indice + 1) + "]");
-        ConsoleVisual.campo("Produto", equipamento.getProduto());
-        ConsoleVisual.campo("Marca", equipamento.getMarca());
-        ConsoleVisual.campo("Modelo", equipamento.getModelo());
-        ConsoleVisual.campo("Defeito", equipamento.getDefeito());
-        ConsoleVisual.campo("Status", equipamento.getStatus() == null
-                ? "OS ainda não aberta" : equipamento.getStatus());
-        ConsoleVisual.linha();
-    }
+	private void exibirEquipamento(int indice, OrdemServico equipamento) {
+		ConsoleVisual.secao("EQUIPAMENTO [" + (indice + 1) + "]");
+		ConsoleVisual.campo("Produto", equipamento.getProduto());
+		ConsoleVisual.campo("Marca", equipamento.getMarca());
+		ConsoleVisual.campo("Modelo", equipamento.getModelo());
+		ConsoleVisual.campo("Defeito", equipamento.getDefeito());
+		ConsoleVisual.campo("Status",
+				equipamento.getStatus() == null ? "OS ainda não aberta" : equipamento.getStatus());
+		ConsoleVisual.linha();
+	}
 }
