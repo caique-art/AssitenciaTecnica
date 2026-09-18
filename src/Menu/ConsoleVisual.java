@@ -1,7 +1,5 @@
 package Menu;
 
-import OrdemServico.OrdemServico;
-
 public final class ConsoleVisual {
 	private static final int LARGURA = 66;
 
