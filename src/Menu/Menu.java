@@ -73,11 +73,50 @@ public class Menu {
 			return;
 		}
 		OrdemServico selecionada = lista.get(opcao - 1);
-		ConsoleVisual.pedir("Defeito relatado");
-		String defeito = sc.nextLine();
-		selecionada.setDefeito(defeito);
-		selecionada.setStatus("Aberta");
-		ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
+		ConsoleVisual.menuServico();
+		int escolha = sc.nextInt();
+		sc.nextLine();
+
+		switch (escolha) {
+		case 1:
+			String servico = "Limpeza";
+			selecionada.setServico(servico);
+			break;
+		case 2:
+			ConsoleVisual.menuDefeito();
+			int escolha1 = sc.nextInt();
+			sc.nextLine();
+
+			switch(escolha1){
+			case 1:
+				servico = "Manutenção Preventiva";
+				selecionada.setServico(servico);
+				selecionada.setStatus("Aberta");
+				ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
+				break;
+			case 2:
+				servico = null;
+				reparo(servico);
+				selecionada.setServico(servico);
+				selecionada.setStatus("Aberta");
+				ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
+				break;
+			default:
+				ConsoleVisual.aviso("Digite uma opção válida!!!");
+				break;
+			}
+			break;
+		case 3:
+			ConsoleVisual.pedir("Defeito relatado:");
+			servico="defeito";
+			selecionada.setServico(servico);
+			String defeito = sc.nextLine();
+			selecionada.setDefeito(defeito);
+			selecionada.setStatus("Aberta");
+			ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
+			break;
+		}
+
 	}
 
 	public void ConsultarOS() {
@@ -143,9 +182,16 @@ public class Menu {
 		ConsoleVisual.campo("Produto", equipamento.getProduto());
 		ConsoleVisual.campo("Marca", equipamento.getMarca());
 		ConsoleVisual.campo("Modelo", equipamento.getModelo());
-		ConsoleVisual.campo("Defeito", equipamento.getDefeito());
+		ConsoleVisual.campo("Serviço pedido:", equipamento.getServico());
+		ConsoleVisual.campo("Defeito:", equipamento.getDefeito()== null ? "Nenhum defeito informado": equipamento.getDefeito());
 		ConsoleVisual.campo("Status",
 				equipamento.getStatus() == null ? "OS ainda não aberta" : equipamento.getStatus());
 		ConsoleVisual.linha();
+	}
+
+	public String reparo(String defeito) {
+		ConsoleVisual.pedir("Defeito relatado:");
+		defeito = sc.nextLine();
+		return defeito;
 	}
 }

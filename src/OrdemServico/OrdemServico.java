@@ -5,6 +5,7 @@ public class OrdemServico {
 	private String produto;
 	private String marca;
 	private String modelo;
+	private String servico;
 	private String defeito;
 	private String status;
 	private int senha;
@@ -58,5 +59,12 @@ public class OrdemServico {
 
 	public void setSenha(int senha) {
 		this.senha = senha;
+	}
+	
+	public String getServico() {
+		return servico;
+	}
+	public void setServico(String servico) {
+		this.servico=servico;
 	}
 }

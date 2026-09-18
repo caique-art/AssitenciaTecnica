@@ -1,5 +1,7 @@
 package Menu;
 
+import OrdemServico.OrdemServico;
+
 public final class ConsoleVisual {
 	private static final int LARGURA = 66;
 
@@ -66,5 +68,21 @@ public final class ConsoleVisual {
 		texto("  [0] Sair");
 		linha();
 		pedir("Escolha uma opção");
+	}
+	
+	public static void menuServico() {
+		titulo("ASSISTÊNCIA TÉCNICA", "Central de atendimento | Tipo de serviços");
+		texto("SERVIÇOS");
+		texto("  [1] Limpeza");
+		texto("  [2] Manutenção preventiva");
+		texto("  [3] Conserto");
+	}
+	
+	public static void menuDefeito() {
+		titulo("ASSISTÊNCIA TÉCNICA", "Central de atendimento | Tipo de serviços");
+		texto("SERVIÇOS");
+		texto("O aparelho apresenta defeitos?");
+		texto("  [1] Sim");
+		texto("  [2] Não");
 	}
 }
