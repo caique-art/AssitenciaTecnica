@@ -88,16 +88,18 @@ public class Menu {
 			sc.nextLine();
 
 			switch(escolha1){
-			case 1:
+			case 2:
 				servico = "Manutenção Preventiva";
 				selecionada.setServico(servico);
 				selecionada.setStatus("Aberta");
 				ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
 				break;
-			case 2:
-				servico = null;
-				reparo(servico);
+			case 1:
+				servico = "defeito";
 				selecionada.setServico(servico);
+				ConsoleVisual.pedir("Qual o defeito ?");
+				String defeito = sc.nextLine();
+				selecionada.setDefeito(defeito);
 				selecionada.setStatus("Aberta");
 				ConsoleVisual.sucesso("Ordem de serviço aberta com sucesso.");
 				break;
@@ -189,9 +191,5 @@ public class Menu {
 		ConsoleVisual.linha();
 	}
 
-	public String reparo(String defeito) {
-		ConsoleVisual.pedir("Defeito relatado:");
-		defeito = sc.nextLine();
-		return defeito;
-	}
+	
 }
