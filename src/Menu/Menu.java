@@ -10,9 +10,14 @@ public class Menu {
 	Scanner sc = new Scanner(System.in);
 	OrdemServico os;
 	Clientes clienteEncontradado = null;
-	ArrayList<OrdemServico> lista;
+	ArrayList<OrdemServico> listaOrdens;
 	ArrayList<Clientes> listaClientes;
 	CadastroClientes cadastroClientes;
+	
+	public Menu(ArrayList<OrdemServico> listaOrdens, ArrayList<Clientes> listaClientes) {
+		this.listaOrdens = listaOrdens;
+		this.listaClientes = listaClientes;
+	}
 	
 	public void AbrirOS() {
 		boolean cpfExist = false;
@@ -20,7 +25,7 @@ public class Menu {
 		ConsoleVisual.texto("Digite o seu cpf: ");
 		String cpf = sc.nextLine();
 
-		for (OrdemServico x : lista) {
+		for (OrdemServico x : listaOrdens) {
 
 			if (cpf.equals(x.getCliente().getCpf())) {
 				cpfExist = true;
@@ -30,22 +35,22 @@ public class Menu {
 		if (!cpfExist) {
 			ConsoleVisual.aviso("CPF inválido!!!!");
 		} else {
-			if (lista.isEmpty()) {
+			if (listaOrdens.isEmpty()) {
 				ConsoleVisual.aviso("Cadastre um equipamento primeiro.");
 				return;
 			}
 
-			for (int i = 0; i < lista.size(); i++) {
-				exibirEquipamento(i, lista.get(i));
+			for (int i = 0; i < listaOrdens.size(); i++) {
+				exibirEquipamento(i, listaOrdens.get(i));
 			}
 			ConsoleVisual.pedir("Número do equipamento");
 			int opcao = sc.nextInt();
 			sc.nextLine();
-			if (opcao < 1 || opcao > lista.size()) {
+			if (opcao < 1 || opcao > listaOrdens.size()) {
 				ConsoleVisual.aviso("Opção inválida.");
 				return;
 			}
-			OrdemServico selecionada = lista.get(opcao - 1);
+			OrdemServico selecionada = listaOrdens.get(opcao - 1);
 			ConsoleVisual.menuServico();
 			int escolha = sc.nextInt();
 			sc.nextLine();
@@ -108,7 +113,7 @@ public class Menu {
 			}
 
 		}
-		if (lista.isEmpty()) {
+		if (listaOrdens.isEmpty()) {
 			ConsoleVisual.aviso("Cadastre um equipamento primeiro.");
 			return;
 		}
@@ -121,8 +126,8 @@ public class Menu {
 			ConsoleVisual.campo("Telefone", clienteEncontrado.getTelefone());
 			ConsoleVisual.linha();
 
-			for (int i = 0; i < lista.size(); i++) {
-				OrdemServico selecionada = lista.get(i);
+			for (int i = 0; i < listaOrdens.size(); i++) {
+				OrdemServico selecionada = listaOrdens.get(i);
 				if (cpf.equals(selecionada.getCliente().getCpf())) {
 					exibirEquipamento(i, selecionada);
 				}
@@ -133,7 +138,7 @@ public class Menu {
 
 	public void AlterarStatus() {
 		ConsoleVisual.titulo("ALTERAR STATUS DA OS", "ASSISTÊNCIA TÉCNICA | Atendimento");
-		if (lista.isEmpty()) {
+		if (listaOrdens.isEmpty()) {
 			ConsoleVisual.aviso("Cadastre um equipamento primeiro.");
 			return;
 		}
@@ -144,19 +149,19 @@ public class Menu {
 			ConsoleVisual.aviso("Senha errada. Somente pessoas autorizadas podem fazer isso.");
 
 		} else {
-			for (int i = 0; i < lista.size(); i++) {
-				exibirEquipamento(i, lista.get(i));
+			for (int i = 0; i < listaOrdens.size(); i++) {
+				exibirEquipamento(i, listaOrdens.get(i));
 			}
 
 			ConsoleVisual.pedir("Número do equipamento");
 			int opcao = sc.nextInt();
 			sc.nextLine();
-			if (opcao < 1 || opcao > lista.size()) {
+			if (opcao < 1 || opcao > listaOrdens.size()) {
 				ConsoleVisual.aviso("Opção inválida.");
 				return;
 			}
 
-			OrdemServico selecionada = lista.get(opcao - 1);
+			OrdemServico selecionada = listaOrdens.get(opcao - 1);
 
 			if (selecionada.getStatus() == null) {
 				ConsoleVisual.aviso("Essa ordem de serviço ainda não foi aberta.");

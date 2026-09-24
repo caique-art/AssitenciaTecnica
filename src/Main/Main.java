@@ -15,11 +15,11 @@ public class Main {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		Menu menu = new Menu();
-		ArrayList<OrdemServico> lista;
-		ArrayList<Clientes> listaClientes;
-		CadastrarEquipamento cadastrarEquipamento= new CadastrarEquipamento();
-		CadastroClientes cadastroClientes= new CadastroClientes();
+		ArrayList<OrdemServico> listaOrdens = new ArrayList<>();
+		ArrayList<Clientes> listaClientes = new ArrayList<>();
+		CadastrarEquipamento cadastrarEquipamento= new CadastrarEquipamento(listaOrdens, listaClientes);
+		CadastroClientes cadastroClientes= new CadastroClientes(listaClientes);
+		Menu menu = new Menu(listaOrdens, listaClientes);
 		int escolha;
 
 		do {
