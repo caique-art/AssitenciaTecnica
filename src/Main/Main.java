@@ -1,8 +1,14 @@
 package Main;
 
+import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
+
+import Clientes.Clientes;
 import Menu.Menu;
+import OrdemServico.OrdemServico;
+import Menu.CadastrarEquipamento;
+import Menu.CadastroClientes;
 import Menu.ConsoleVisual;
 
 public class Main {
@@ -10,6 +16,10 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		Menu menu = new Menu();
+		ArrayList<OrdemServico> lista;
+		ArrayList<Clientes> listaClientes;
+		CadastrarEquipamento cadastrarEquipamento= new CadastrarEquipamento();
+		CadastroClientes cadastroClientes= new CadastroClientes();
 		int escolha;
 
 		do {
@@ -19,11 +29,11 @@ public class Main {
 
 			switch (escolha) {
 			case 1:
-				menu.CadastrarClientes();
+				cadastroClientes.CadastrarClientes();
 				break;
 
 			case 2:
-				menu.CadastrarEquipamento();
+				cadastrarEquipamento.CadastroEquipamento();
 				break;
 
 			case 3:
