@@ -1,5 +1,7 @@
 package OrdemServico;
 
+import Clientes.Clientes;
+
 public class OrdemServico {
 
 	private String produto;
@@ -9,6 +11,7 @@ public class OrdemServico {
 	private String defeito;
 	private String status;
 	private int senha;
+	private Clientes Cliente;
 
 	public OrdemServico() {
 	}
@@ -66,5 +69,13 @@ public class OrdemServico {
 	}
 	public void setServico(String servico) {
 		this.servico=servico;
+	}
+
+	public Clientes getCliente() {
+		return Cliente;
+	}
+
+	public void setCliente(Clientes cliente) {
+		Cliente = cliente;
 	}
 }
