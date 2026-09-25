@@ -62,6 +62,7 @@ public final class ConsoleVisual {
 		texto("  [3] Abrir ordem de serviço");
 		texto("  [4] Consultar ordem de serviço");
 		texto("  [5] Alterar status da OS");
+		texto("  [6] Deletar cadastro/equipamento");
 		linha();
 		texto("  [0] Sair");
 		linha();
@@ -82,5 +83,12 @@ public final class ConsoleVisual {
 		texto("O aparelho apresenta defeitos?");
 		texto("  [1] Sim");
 		texto("  [2] Não");
+	}
+	public static void menuDelete() {
+		titulo("ASSISTÊNCIA TÉCNICA", "Central de atendimento | Tipo de serviços");
+		texto("EXCLUIR");
+		texto("  [1] Cadastro");
+		texto("  [2] Equipamento");
+		texto("  [3] Sair");
 	}
 }

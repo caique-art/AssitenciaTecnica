@@ -47,6 +47,9 @@ public class Main {
 			case 5:
 				menu.AlterarStatus();
 				break;
+				
+			case 6:
+				menu.Delete();
 
 			case 0:
 				ConsoleVisual.sucesso("Atendimento encerrado. Até a próxima!");
